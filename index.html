@@ -30,12 +30,12 @@
                         <h2 class="text-center mb-4">محاسبه قیمت پارساشاپ</h2>
                         <form>
                             <div class="mb-3">
-                                <label for="originalPrice" class="form-label">قیمت اصلی محصول به یورو</label>
-                                <input type="number" id="originalPrice" class="form-control" min="0" required>
+                                <label for="oP" class="form-label">قیمت اصلی محصول به یورو</label>
+                                <input type="number" id="oP" class="form-control" min="0" required>
                             </div>
                             <div class="mb-3">
-                                <label for="weight" class="form-label">وزن کالا به گرم (مثال 200 گرم)</label>
-                                <input type="number" id="weight" class="form-control" min="0" required>
+                                <label for="w" class="form-label">وزن کالا به گرم (مثال 200 گرم)</label>
+                                <input type="number" id="w" class="form-control" min="0" required>
                             </div>
                             <button type="button" onclick="calculateFinalPrice()" class="btn btn-primary btn-lg w-100">محاسبه قیمت</button>
                         </form>
@@ -51,28 +51,28 @@
 
 <script>
 function calculateFinalPrice() {
-    // Get the values entered by the user
-    var originalPrice = parseFloat(document.getElementById("originalPrice").value);
-    var weight = parseFloat(document.getElementById("weight").value);
 
-    // Apply the condition to calculate the final price
+    var oP = parseFloat(document.getElementById("oP").value);
+    var w = parseFloat(document.getElementById("w").value);
+
+   
     var finalPrice;
-    if (originalPrice < 100) {
-        finalPrice = originalPrice * 1.13;
-    } else if (originalPrice < 500) {
-        finalPrice = originalPrice * 1.1;
-    } else if (originalPrice < 1000) {
-        finalPrice = originalPrice * 1.06;
+    if (oP < 100) {
+        finalPrice = oP * 1.13;
+    } else if (oP < 500) {
+        finalPrice = oP * 1.1;
+    } else if (oP < 1000) {
+        finalPrice = oP * 1.06;
     } else {
-        finalPrice = originalPrice * 1.04;
+        finalPrice = oP * 1.04;
     }
 
-    // Calculate the total price including weight
-    var totalPrice = finalPrice + (weight * 0.015) + 2;
+ 
+    var totalPrice = finalPrice + (w * 0.015) + 2;
 
-    // Display the result in euros with bold text
+
     document.getElementById("result").innerHTML = "<strong>قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
-// Display additional info
+
     document.getElementById("additionalInfo").innerHTML = "قیمت یورو بر اساس قیمت حواله یورو است که معادل با 200 تومان بالاتر از قیمت فروش سایت بن بست است.";
 
 }
