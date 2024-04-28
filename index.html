@@ -1,155 +1,22 @@
+<!DOCTYPE html>
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>خرید مستقیم از اروپا پارساشاپ 24</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-<style>
-    body
-    {
-    font-family: Tahoma, sans-serif;
-}
-    {
-        padding-top: 20px; /* Add some distance from the top */
-        padding-bottom: 50px;
-    }
-    .logo {
-        width: 50px; /* Set the logo width to 50 pixels */
-        height: 50px; /* Set the logo height to 50 pixels */
-    }
-    .centered {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .faq-card, .calculate-price-card, .telegram-card {
-        background-color: white; /* Set background color to white */
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-top: 20px;
-    }
-    .faq-item {
-        cursor: pointer;
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-        background-color: #0d6efd;
-        color: white;
-        border-radius: 5px;
-    }
-    .faq-item:last-child {
-        border-bottom: none;
-    }
-    .faq-answer {
-        display: none;
-        padding: 10px;
-        border-radius: 5px;
-        color: black;
-        background-color: white; /* Set background color of answer to white */
-    }
-    .faq-answer-visible {
-        display: block;
-    }
-    .right-align {
-        text-align: right;
-    }
-    .form-group {
-        margin-bottom: 0;
-    }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-            <img src="https://raw.githubusercontent.com/parsashop24/c/main/parsashop.png" alt="ParsaShop24" class="img-fluid mb-4 logo"> <!-- Logo with 50x50 pixels -->
-            <h2 class="mb-4">خرید مستقیم از اروپا با پارساشاپ 24</h2> <!-- Show the heading -->
-            <div class="telegram-card"> <!-- Telegram button wrapper -->
-                <a href="https://t.me/parsashop24" class="btn btn-primary btn-lg w-100 mb-3" target="_blank">ارتباط در تلگرام</a> <!-- Telegram button -->
-            </div>
-            <!-- Frequently Asked Questions -->
-            <div class="text-center mt-4 faq-card">
-                <h3>راهنمای سفارش</h3>
-                <div class="faq-item">
-                    <p><strong>مدت زمان ارسال</strong> </p>
-                    <div class="faq-answer">
-                        <p>یک تا چهار هفته</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <p><strong>چگونگی سفارش</strong> </p>
-                    <div class="faq-answer">
-                        <p>پس از واریز هزینه (تسویه تک مرحله‌ای)، کد تایید سفارش به شما ارسال می‌شود و در اولین فرصت به ایران ارسال می‌شود 
-                        <br>
-                        پست به سراسر ایران رایگان است. ارسال سفارش‌ها با پیک فقط در تهران امکان‌پذیر است
-                        <br>
-                        برای سفارش‌های بالاتر از 5 میلیون تومان هزینه پیک نیز رایگان است</p>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Frequently Asked Questions -->
-            <div class="card shadow-lg mt-4 calculate-price-card"> <!-- Calculate Price Box -->
-                <div class="card-body">
-                    <h2 class="text-center mb-4">محاسبه قیمت</h2>
-                    <form>
-                        <div class="mb-3 row">
-                            <label for="oP" class="form-label col-md-6">قیمت اصلی کالا به یورو</label>
-                            <div class="col-md-6">
-                                <input type="number" id="oP" class="form-control" min="0" required>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="w" class="form-label col-md-6">وزن کالا به گرم (مثال 200 گرم)</label>
-                            <div class="col-md-6">
-                                <input type="number" id="w" class="form-control" min="0" required>
-                            </div>
-                        </div>
-                        <button type="button" onclick="calculateFiP()" class="btn btn-primary btn-lg w-100">محاسبه قیمت</button>
-                    </form>
-                    <div id="result" class="text-center mt-4"></div>
-                    <div id="additionalInfo" class="text-center mt-4"></div>
-                </div>
-            </div>
-            <!-- End of Calculate Price Box -->
+        <div class="col-md-6 text-center" id="dynamic-content">
+            <!-- Your JavaScript will generate the content here -->
         </div>
     </div>
 </div>
 
-<script>
-function calculateFiP() {
-    var oP = parseFloat(document.getElementById("oP").value);
-    var w = parseFloat(document.getElementById("w").value);
-   
-    var fiP;
-    if (oP < 100) {
-        fiP = oP * 1.13;
-    } else if (oP < 500) {
-        fiP = oP * 1.09;
-    } else if (oP < 1000) {
-        fiP = oP * 1.06;
-    } else {
-        fiP = oP * 1.04;
-    }
-
-    var totalPrice = fiP + (w * 0.015) + 2;
-
-    document.getElementById("result").innerHTML = "<strong>قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
-
-    document.getElementById("additionalInfo").innerHTML = "قیمت یورو بر اساس قیمت حواله یورو است که معادل با 200 تومان بالاتر از قیمت فروش سایت بن بست است.";
-}
-
-// Toggle FAQ answer visibility
-document.addEventListener("DOMContentLoaded", function() {
-    var faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-            this.querySelector('.faq-answer').classList.toggle('faq-answer-visible');
-        });
-    });
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
