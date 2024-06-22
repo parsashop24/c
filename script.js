@@ -43,7 +43,7 @@ function calculateFiP() {
     } else if (oP < 1000) {
         fiP = oP * 1.06;
     } else {
-        fiP = oP * 1.04;
+        fiP = oP * 1.045;
     }
 
     var totalPrice = fiP + (w * 0.015) + 2;
