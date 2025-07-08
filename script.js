@@ -49,7 +49,7 @@ function calculateFiP() {
 
 
 
-    document.getElementById("result").innerHTML = "<strong>قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
+    document.getElementById("result").innerHTML = "<strong>  .  به قیمت نهایی کفش ها 6 یورو اضافه خواهد شد.قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
 
 
 }
