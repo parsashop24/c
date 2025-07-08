@@ -45,7 +45,7 @@ function calculateFiP() {
         fiP = oP * 1.05;
     }
     
-    var totalPrice = fiP* 1.05 + (w * 0.023) + 2;
+    var totalPrice = (fiP* 1.05) + (w * 0.023) + 2;
 
 
 
