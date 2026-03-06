@@ -40,7 +40,7 @@ function calculateFiP() {
 
            var fiP;
     if (oP < 1000) {
-        fiP = (oP * 1.12)+1;
+        fiP = (oP * 1.1)+1;
     } else {
         fiP = oP * 1.05;
     }
@@ -49,8 +49,9 @@ function calculateFiP() {
 
 
 
-    document.getElementById("result").innerHTML = "<strong>  .  به قیمت نهایی کفش ها 6 یورو اضافه خواهد شد.قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
+    document.getElementById("result").innerHTML = "<strong>  .  به قیمت نهایی کفش ها 6 یورو اضافه خواهد شد. قیمت نهایی تحویل در ایران (به یورو): </strong>" + "<strong>" + totalPrice.toFixed(2) + "</strong>";
 
 
 }
+
 
